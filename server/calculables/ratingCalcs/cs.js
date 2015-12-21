@@ -22,16 +22,16 @@ ns.lib.calcs.calcCS = function calcCS(system) {
     var flags = {
 
               // can use withType here as well
-      site: scoreWeight (withTag['Main'], linkWeights.site),
-      community: scoreWeight(withTag['Community'], linkWeights.community),
-      updates: scoreWeight(withTag['News'], linkWeights.updates),
-      code: scoreWeight((withTag['Code'] + withTag['code']), linkWeights.code),
-      science: scoreWeight(withTag['Science'], linkWeights.science),
-      knowledge: scoreWeight((withTag['Publicaions'] + withTag['paper']), linkWeights.knoweledge),
-      buy: scoreWeight(withTag['Exchange'], linkWeights.buy),
-      hold: scoreWeight((withTag['Wallet'] + withTag['wallet']), linkWeights.hold),
-      analyze: scoreWeight((withTag['Analytics'] + withTag['Exporer']), linkWeights.analyze),
-      earn: true ? 1 : 0 // ? VL any changes?
+      site: scoreWeight (withType['site'], linkWeights.site),
+      community: scoreWeight(withType['forum'], linkWeights.community),
+      updates: scoreWeight(withType['blog'] + withType['reddit'], linkWeights.updates),
+      code: scoreWeight((withType['github'] + withType['bitbucket']), linkWeights.code),
+      science: scoreWeight(withType['paper'], linkWeights.science),
+      knowledge: scoreWeight(withType['wiki'], linkWeights.knoweledge),
+      buy: scoreWeight(withType['exchange'], linkWeights.buy),
+      hold: scoreWeight(withType['wallet'], linkWeights.hold),
+      analyze: scoreWeight(withType['explorer'], linkWeights.analyze),
+      earn: scoreWeight(withType['earn'], linkWeights.earn)
     }
   } catch (e) {
     console.log(type);

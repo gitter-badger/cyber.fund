@@ -38,9 +38,32 @@ var scoreWeightsPerLinksCount = {
     [7, 0.7],
     [8, 0.8],
     [9, 0.9]
+  ],
+  max001: [
+    [0, 0],
+    [1, 0.02],
+    [5, 0.05],
+    [9, 0.08],
+  ],
+  max005: [
+    [0, 0],
+    [1, 0.01],
+    [5, 0.025],
+    [9, 0.04],
+  ],
+  max03: [
+    [0, 0],
+    [1, 0.06],
+    [5, 0.15],
+    [9, 0.24],
+  ],
+  max04: [
+    [0, 0],
+    [1, 0.08],
+    [5, 0.2],
+    [9, 0.32],
   ]
 }
-
 params = {
   weightsRATING: {
     'Project': {
@@ -165,6 +188,7 @@ params = {
       buy: clone(scores.neverMind),
       hold: clone(scores.neverMind),
       analyze: clone(scores.neverMind),
+      earn: clone(scores.baseBoolean),
     };
 
     if (state === "Public") {
